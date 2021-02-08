@@ -4,7 +4,7 @@ def exchange_list(working_list, index):
         return "Invalid index"
 
     temp1 = working_list[:index + 1]
-    temp2 = working_list[index + 1::]
+    temp2 = working_list[index + 1:]
     result = temp2 + temp1
     return result
 
