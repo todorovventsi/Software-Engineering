@@ -18,7 +18,9 @@ while "Go Shopping!" not in command:
     else:
         action, old_item, new_item = command.split()
         if old_item in shopping_list:
-            shopping_list[shopping_list.index(old_item)] = new_item
+            index = shopping_list.index(old_item)
+            shopping_list.insert(index, new_item)
+            shopping_list.remove(old_item)
 
     command = input()
 
