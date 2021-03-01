@@ -1,141 +1,136 @@
-# Define a function that splits a list into two different lists and exchange their places into a new list:
-def exchange_list(working_list, index):
-    if index >= len(working_list) or index < -len(working_list):
-        return "Invalid index"
-
-    temp1 = working_list[:index + 1]
-    temp2 = working_list[index + 1:]
-    result = temp2 + temp1
+def exchange(array, ind):
+    arr_one = array[:ind + 1]
+    arr_two = array[ind + 1::]
+    result = arr_two + arr_one
     return result
 
 
-def min_max_even_odd(working_list, com):
-    evens = []
-    odds = []
-    for num in working_list:
-        if num % 2 == 0:
-            evens.append(num)
-        else:
-            odds.append(num)
+def min_or_max(array, arr_evens, arr_odds, min_max, even_odd):
+    result = 0
+    if min_max == "max":
+        if even_odd == "even":  # Max even
+            if not arr_evens:
+                result = "No matches"
+                return result
+            max_even = max(arr_evens)
+            if array.count(max_even) == 1:
+                result = array.index(max_even)
+                return result
+            else:
+                result = len(array) - array[::-1].index(max_even) - 1
+        elif even_odd == "odd":  # Max odd
+            if not arr_odds:
+                result = "No matches"
+                return result
+            max_odd = max(arr_odds)
+            if array.count(max_odd) == 1:
+                result = array.index(max_odd)
+                return result
+            else:
+                result = len(array) - array[::-1].index(max_odd) - 1
 
-    if "even" in com and "min" in com:
-        if not evens:
-            result = "No matches"
+    elif min_max == "min":
+        if even_odd == "even":  # Max even
+            if not arr_evens:
+                result = "No matches"
+                return result
+            max_even = min(arr_evens)
+            if array.count(max_even) == 1:
+                result = array.index(max_even)
+                return result
+            else:
+                result = len(array) - array[::-1].index(max_even) - 1
+        elif even_odd == "odd":  # Max odd
+            if not arr_odds:
+                result = "No matches"
+                return result
+            max_odd = min(arr_odds)
+            if array.count(max_odd) == 1:
+                result = array.index(max_odd)
+                return result
+            else:
+                result = len(array) - array[::-1].index(max_odd) - 1
+
+
+def first_or_last(array, first_last, val, even_odd):
+    evens = [x for x in array if x % 2 == 0]
+    odds = [x for x in array if not x % 2 == 0]
+    result = 0
+    if val > len(array):
+        result = "Invalid count"
+        return result
+
+    if first_last == "first":
+        if even_odd == "even":
+            if not evens:
+                result = []
+                return result
+            if val > len(evens):
+                result = evens
+                return result
+            result = evens[:val]
+            return result
+        elif even_odd == "odd":
+            if not odds:
+                result = []
+                return result
+            if val > len(odds):
+                result = odds
+                return result
+            result = odds[:val]
             return result
 
-        min_even = min(evens)
-        min_evens = evens.count(min_even)
-
-        if min_evens > 1:
-            for index in range(len(working_list) - 1, -1, -1):
-                if working_list[index] == min_even:
-                    return index
-        return working_list.index(min_even)
-
-    elif "even" in com and "max" in com:
-        if not evens:
-            result = "No matches"
+    elif first_last == "last":
+        if even_odd == "even":
+            if not evens:
+                result = []
+                return result
+            if val > len(evens):
+                result = evens
+                return result
+            result = evens[len(evens):val:-1]
+            return result
+        elif even_odd == "odd":
+            if not odds:
+                result = []
+                return result
+            if val > len(odds):
+                result = odds
+                return result
+            result = odds[len(odds):val:-1]
             return result
 
-        max_even = max(evens)
-        max_evens = evens.count(max_even)
 
-        if max_evens > 1:
-            for index in range(len(working_list) - 1, -1, -1):
-                if working_list[index] == max_even:
-                    return index
-        return working_list.index(max_even)
+initial_array = [int(i) for i in input().split()]
+evens = [x for x in initial_array if x % 2 == 0]
+odds = [x for x in initial_array if not x % 2 == 0]
 
-    elif "odd" in com and "min" in com:
-        if not odds:
-            result = "No matches"
-            return result
-
-        min_odd = min(odds)
-        min_odds = odds.count(min_odd)
-
-        if min_odds > 1:
-            for index in range(len(working_list) - 1, -1, -1):
-                if working_list[index] == min_odd:
-                    return index
-        return working_list.index(min_odd)
-
-    elif "odd" in com and "max" in com:
-        if not odds:
-            result = "No matches"
-            return result
-
-        max_odd = max(odds)
-        max_odds = odds.count(max_odd)
-
-        if max_odds > 1:
-            for index in range(len(working_list) - 1, -1, -1):
-                if working_list[index] == max_odd:
-                    return index
-        return working_list.index(max_odd)
-
-
-def first_last_even_odd(working_list, com):
-    result = []
-    if int(com[1]) > len(working_list):
-        return "Invalid count"
-    if "first" in com and "even" in com:
-        count = 0
-        for num in working_list:
-            if num % 2 == 0:
-                result.append(num)
-                count += 1
-            if count == int(com[1]):
-                break
-
-    elif "first" in com and "odd" in com:
-        count = 0
-        for num in working_list:
-            if not num % 2 == 0:
-                result.append(num)
-                count += 1
-            if count == int(com[1]):
-                break
-
-    elif "last" in com and "even" in com:
-        count = 0
-        for index in range(len(working_list) - 1, -1, -1):
-            if working_list[index] % 2 == 0:
-                result.append(working_list[index])
-                count += 1
-            if count == int(com[1]):
-                break
-
-    elif "last" in com and "odd" in com:
-        count = 0
-        for index in range(len(working_list) - 1, -1, -1):
-            if not working_list[index] % 2 == 0:
-                result.append(working_list[index])
-                count += 1
-            if count == int(com[1]):
-                break
-
-    return result
-
-
-input_list = [int(i) for i in input().split()]
 command = input()
 
 while not command == "end":
-    command_as_list = command.split()
+    command = command.split()
+
     if "exchange" in command:
-        result = exchange_list(input_list, int(command_as_list[-1]))
-        if result == "Invalid index":
-            print(result)
+        index = int(command[1])
+        if index in range(len(initial_array)):
+            initial_array = exchange(initial_array, index)
         else:
-            input_list = result
+            print("Invalid index")
 
-    if "max" in command or "min" in command:
-        print(min_max_even_odd(input_list, command_as_list))
+    elif "max" in command or "min" in command:
+        criteria = command[0]
+        even_or_odd = command[1]
+        output = min_or_max(initial_array, evens, odds, criteria, even_or_odd)
+        print(output)
 
-    if "first" in command or "last" in command:
-        print(first_last_even_odd(input_list, command_as_list))
+
+    elif "first" in command or "last" in command:
+        criteria = command[0]
+        value = int(command[1])
+        even_or_odd = command[2]
+        output = first_or_last(initial_array, criteria, value, even_or_odd)
+        print(output)
 
     command = input()
 
-print(input_list)
+print(initial_array)
