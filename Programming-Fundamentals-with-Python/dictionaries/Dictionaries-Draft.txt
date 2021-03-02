@@ -1,0 +1,35 @@
+1. Definition:
+
+    A dictionary is a data type in Python formed out of key:value pairs.
+    The "key" must be unique within the dictionary. "Keys" can be any immutable
+    type - strings, integers and others.
+    The "values" can be any data type and can repeat within the dictionary.
+
+    "Keys" and "Values" are separated by a semicolon ":", and together form
+    a dictionary element. The elements are separated by a comma ","
+
+    A dictionary can be created by using the dict() constructor or by using
+    a square bracket {}
+
+    ### my_dict = {'key_one': 'value_one', 'key_two', 'value_two'}
+
+    The dict() constructor builds dictionaries directly from sequences of key-value pairs:
+    ### my_dict = dict([('key_one', 'value_one'), ('key_two', 'value_two')])
+
+
+    The main operations on a dictionary are storing a value, associated with
+    a key, and accessing this value using the key.
+
+
+2. Iterating trough a dictionary
+    - when iterating with 'for' loop trough a dictionary, it goes trough the 'keys' by default
+
+
+3. Dictionary methods
+    my_dict.get()
+    my_dict.keys()
+    my_dict.values()
+    my_dict.items()
+
+
+
