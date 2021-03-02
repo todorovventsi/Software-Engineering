@@ -1,5 +1,4 @@
 my_dict = {'name': 'Ventsislav', 'surname': 'Todorov'}
 
-test = None
-if not test:
-    print(my_dict.get('name'))
+my_dict['test'] = my_dict.pop('name')
+print(my_dict)

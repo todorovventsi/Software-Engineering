@@ -22,7 +22,7 @@
 
 
 2. Iterating trough a dictionary
-    - when iterating with 'for' loop trough a dictionary, it goes trough the 'keys' by default
+    - when iterating with 'for' loop or with 'in' keyword trough a dictionary, it goes trough the 'keys' by default
 
 
 3. Dictionary methods
@@ -30,6 +30,12 @@
     my_dict.keys()
     my_dict.values()
     my_dict.items()
+
+4. Check for key existence
+
+5. Sorting !!!
+
+
 
 
 
