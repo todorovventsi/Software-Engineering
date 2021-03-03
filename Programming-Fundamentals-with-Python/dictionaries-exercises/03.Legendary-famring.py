@@ -1,8 +1,8 @@
 resources = {"shards": 0, "fragments": 0, "motes": 0}
-legendary_is_collected = False
 
 while True:
     data = input().split()
+    legendary_is_collected = False
     for idx in range(0, len(data), 2):
         resource = data[idx + 1].lower()
         quantity = int(data[idx])
