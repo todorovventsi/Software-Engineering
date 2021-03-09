@@ -29,7 +29,7 @@ key_materials_ls = ["shards", "fragments", "motes"]
 key_materials_dc = {item: value for item, value in resources.items() if item in key_materials_ls}
 junk_materials = {item: value for item, value in resources.items() if item not in key_materials_ls}
 
-key_mat_sorted = sorted(key_materials_dc, key = lambda k: (-key_materials_dc[k], k))
+key_mat_sorted = sorted(key_materials_dc, key=lambda k: (-key_materials_dc[k], k))
 junk_mat_sorted = sorted(junk_materials)
 
 print(f"{legendary_item_obtained} obtained!")
