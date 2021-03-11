@@ -2,10 +2,21 @@
 # slicing
 # substring
 
-to_remove = input()
-text = input()
+data = input()
+ls = []
+mats = {}
+counter = 1
+while not data == 'stop':
+    ls.append(data)
+    data = input()
 
-while to_remove in text:
-    text = text.replace(to_remove, "")
+for el in ls:
+    if not counter % 2 == 0:
+        if el not in mats:
+            mats[el] = 0
+    else:
+        mats[ls[ls.index(el) - 1]] += int(el)
+    counter += 1
 
-print(text)
+for key, value in mats.items():
+    print(f'{key} -> {value}')

@@ -4,7 +4,7 @@ resources = {}
 last_res = command
 
 while not command == "stop":
-    if not counter % 2 == 0: # when counter is odd
+    if not counter % 2 == 0:  # when counter is odd
         if command not in resources:
             resources[command] = 0
         last_res = command
