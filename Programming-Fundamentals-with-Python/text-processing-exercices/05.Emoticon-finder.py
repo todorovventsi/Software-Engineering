@@ -1,6 +1,6 @@
-text = input().split()
+text = input()
 
 # emoticons = [item for item in text if ":" in item]
-emoticons = list(filter(lambda x: ":" in x, text))
-for emo in emoticons:
-    print(emo[:2])
+emoticons = [f"{text[index]}{text[index + 1]}" for index in range(len(text)) if text[index] == ":"]
+
+print('\n'.join(emoticons))
