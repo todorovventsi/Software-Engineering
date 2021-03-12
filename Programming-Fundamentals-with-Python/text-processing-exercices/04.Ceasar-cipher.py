@@ -1,6 +1,6 @@
 to_encode = input()
-encrypted = ""
+encrypted = []
 for ch in to_encode:
-    encrypted += chr(ord(ch) + 3)
+    encrypted.append(chr(ord(ch) + 3))
 
-print(encrypted)
+print(''.join(encrypted))
