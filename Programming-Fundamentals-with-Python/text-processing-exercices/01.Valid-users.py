@@ -1,4 +1,10 @@
 def contain_valid_symbols(name):
+    """
+    Checking for validity any character of a string.
+    A valid character is any letter, digit, hyphen or underscore
+    :param name: a iterable to be checked
+    :return: True if every symbol of the iterable is valid, False otherwise
+    """
     symbols = list(name)
     for ch in symbols:
         if not ch.isalnum():
