@@ -36,12 +36,14 @@ Quantifiers:
     .search(pattern, text) - returns a "Match object" of the first occurrence of the pattern in the text.
                              If there is no match returns "None"
     .match(pattern, text) - returns a re.match object
-    .finditer(pattern, text) - returns iterable object
+    .finditer(pattern, text) - returns iterable object similar to map() and filter()
 
 
 
     ### Match object methods ###
 
         .group() - return the match itself
+        .groupdict() - returns a list of dictionaries for every match where the group name is the key and the groupmatch is the value of the kvp
+                       works with finditer()
         .start() - returns the starting index of the match
         .end() - returns the ending index of the match (exclusive)
