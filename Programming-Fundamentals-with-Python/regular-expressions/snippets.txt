@@ -15,6 +15,7 @@ $       - End of a String
 [^ ]    - Matches Characters NOT in brackets
 |       - Either Or
 ( )     - Group
+\n      - Backreference to a group where "n" is the referance group number
 
 Quantifiers:
 *       - 0 or More
@@ -27,3 +28,20 @@ Quantifiers:
 #### Sample Regexs ####
 
 [a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+
+
+
+#### re module Methods ####
+
+    .findall(pattern, text) - returns a list with all matches or an empty list if there is no matches
+    .search(pattern, text) - returns a "Match object" of the first occurrence of the pattern in the text.
+                             If there is no match returns "None"
+    .match(pattern, text) - returns a re.match object
+    .finditer(pattern, text) - returns iterable object
+
+
+
+    ### Match object methods ###
+
+        .group() - return the match itself
+        .start() - returns the starting index of the match
+        .end() - returns the ending index of the match (exclusive)
