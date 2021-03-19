@@ -17,12 +17,20 @@ $       - End of a String
 ( )     - Group
 \n      - Backreference to a group where "n" is the referance group number
 
+
 Quantifiers:
 *       - 0 or More
 +       - 1 or More
 ?       - 0 or One
 {3}     - Exact Number
 {3,4}   - Range of Numbers (Minimum, Maximum)
+
+
+Lookarounds:
+(?<=)   - positive lookbehind
+(?=)    - positive lookahead
+(?<!)   - negative lookbehind
+(?!)    - negative lookahead
 
 
 #### Sample Regexs ####
