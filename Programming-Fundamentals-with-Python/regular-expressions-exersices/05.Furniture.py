@@ -6,15 +6,15 @@ spend_money = 0
 furniture_bought = []
 
 while not text_line == "Purchase":
-    register = [item.groupdict() for item in re.finditer(pattern, text_line)]
+    register = re.match(pattern, text_line)  # USING MATCH() BECAUSE ONLY ONE OCCURRENCE IS EXPECTED
     if register:
-        furniture_bought.append(register[0]["furniture"])
-        spend_money += float(register[0]['price']) * int(register[0]['quantity'])
-        register = []
+        register = register.groupdict()
+        furniture_bought.append(register["furniture"])
+        spend_money += float(register["price"]) * int(register["quantity"])
 
     text_line = input()
 
 print("Bought furniture:")
 if furniture_bought:
-    print(*furniture_bought, sep= "\n")
+    print(*furniture_bought, sep="\n")
 print(f"Total money spend: {spend_money:.2f}")
