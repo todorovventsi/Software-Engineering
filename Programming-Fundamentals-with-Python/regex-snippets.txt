@@ -50,7 +50,7 @@ Lookarounds:
 
     ### Match object methods ###
 
-        .group() - return the match itself
+        .group() - return the match itself, if there is specified argument it returns the match from its group
         .groupdict() - returns a list of dictionaries for every match where the group name is the key and the groupmatch is the value of the kvp
                        works with finditer()
         .start() - returns the starting index of the match
