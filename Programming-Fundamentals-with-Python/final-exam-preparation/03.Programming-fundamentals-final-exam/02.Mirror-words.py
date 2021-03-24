@@ -3,8 +3,7 @@ import re
 text = input()
 
 pattern = r"(?P<del>[@#])(?P<wordone>[a-zA-Z]{3,})(?P=del){2}(?P<wordtwo>[a-zA-Z]{3,})(?P=del)"
-valid_pairs = re.finditer(pattern, text)
-matches = [match.groupdict() for match in valid_pairs]
+matches = [match.groupdict() for match in re.finditer(pattern, text)]
 if not matches:
     print("No word pairs found!")
     print("No mirror words!")
