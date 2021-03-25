@@ -38,9 +38,10 @@ command = input()
 while not command == "Stop":
     data = command.split("|")
     if "Add" in data:
-        piece_to_add = data[1]
-        piece_composer = data[2]
-        piece_key = data[3]
+        piece_to_add, piece_composer, piece_key = data[1:]
+        # piece_to_add = data[1]
+        # piece_composer = data[2]
+        # piece_key = data[3]
         pieces_register = add_piece(piece_to_add, piece_composer, piece_key, pieces_register)
     elif "Remove" in data:
         piece_to_remove = data[1]
