@@ -6,12 +6,12 @@ class Weapon:
     def shoot(self):
         if self.bullets:
             self.bullets -= 1
-            return "shooting…"
-        else:
-            return "no bullets left"
+            return "shooting..."
+        return "no bullets left"
 
     def __repr__(self):
         return f"Remaining bullets: {self.bullets}"
+
 
 weapon = Weapon(5)
 print(weapon.shoot())
