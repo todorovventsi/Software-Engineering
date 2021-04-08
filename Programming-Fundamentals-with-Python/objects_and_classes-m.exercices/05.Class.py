@@ -16,8 +16,9 @@ class Class:
 
     def get_average_grade(self):
         if self.grades:
-            return f"{mean(self.grades):.2f}"
-        return "0.00"
+            avg = mean(self.grades)
+            return round(avg, 2)
+        return 0.00
 
     def __repr__(self):
         students = ', '.join(self.students)
@@ -26,7 +27,7 @@ class Class:
 
 
 a_class = Class("11B")
-# a_class.add_student("Peter", 4.80)
-# a_class.add_student("George", 6.00)
-# a_class.add_student("Amy", 3.50)
+a_class.add_student("Peter", 4.80)
+a_class.add_student("George", 6.00)
+a_class.add_student("Amy", 3.50)
 print(a_class)
