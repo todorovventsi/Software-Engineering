@@ -9,9 +9,11 @@ for _ in range(number_of_queries):
         if stack_state:
             stack_state.pop()
     elif command[0] == "3":
-        print(max(stack_state))
+        if stack_state:
+            print(max(stack_state))
     elif command[0] == "4":
-        print(min(stack_state))
+        if stack_state:
+            print(min(stack_state))
 if stack_state:
     stack_print = [stack_state.pop() for _ in range(len(stack_state))]
     print(*stack_print, sep=", ")
