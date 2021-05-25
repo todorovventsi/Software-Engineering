@@ -1,4 +1,4 @@
 ss = list(input())
 
 while ss:
-    print(ss.pop(), end="")
+    print(ss.pop(), end=""
