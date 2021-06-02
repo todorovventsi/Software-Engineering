@@ -4,10 +4,10 @@ import sys
 def define_sub_matrix(grid, sub_size, initial_index):
     '''
 
-    :param grid: a matrix from which a sub matrix will be exracted
+    :param grid: a matrix from which a sub matrix will be extracted
     :param sub_size: the size of the sub matrix
     :param initial_index: the position of the first element of the parent matrix
-    :return: a square sub matrix exracted from the parent matrix with the given matrix size
+    :return: a square sub matrix extracted from the parent matrix with the given matrix size
     '''
     r, c = initial_index
     result = []
