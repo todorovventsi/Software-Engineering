@@ -7,5 +7,6 @@ def palindrome(text, index=0):
         return f"{text} is a palindrome"
     return palindrome(text, index + 1)
 
+
 print(palindrome("peter", 0))
 print(palindrome("abcba", 0))
