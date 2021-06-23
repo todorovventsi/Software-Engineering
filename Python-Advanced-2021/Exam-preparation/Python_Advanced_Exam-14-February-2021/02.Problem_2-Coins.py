@@ -3,7 +3,7 @@ def game_ends(result):
     return int(result * 0.5)
 
 
-def valid_move(matrix, pos):
+def valid_move(pos):
     r = pos[0]
     c = pos[1]
     if 0 <= r < size and 0 <= c < size:
@@ -41,7 +41,7 @@ while True:
     if command not in moves_mapper:
         continue
     next_position = moves_mapper[command](position[0], position[1])
-    if valid_move(field, next_position):
+    if valid_move(next_position):
         collect = field[next_position[0]][next_position[1]]
         if collect == "X":
             coins = game_ends(coins)
