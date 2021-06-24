@@ -1,11 +1,10 @@
 from collections import deque
 
-
-#Inputs:
+# Inputs:
 bomb_effects = deque([int(i) for i in input().split(', ')])
 bomb_casings = deque([int(i) for i in input().split(', ')])
 
-materials = {40: "Datura Bombs",60: "Cherry Bombs",120: "Smoke Decoy Bombs"}
+materials = {40: "Datura Bombs", 60: "Cherry Bombs", 120: "Smoke Decoy Bombs"}
 bombs_record = {"Datura Bombs": 0, "Cherry Bombs": 0, "Smoke Decoy Bombs": 0}
 pouch_is_filled = True
 
@@ -27,7 +26,8 @@ while bomb_effects and bomb_casings:
     if pouch_is_filled:
         break
 
-print("Bene! You have successfully filled the bomb pouch!" if pouch_is_filled else "You don't have enough materials to fill the bomb pouch.")
+print(
+    "Bene! You have successfully filled the bomb pouch!" if pouch_is_filled else "You don't have enough materials to fill the bomb pouch.")
 print(f"Bomb Effects: {', '.join(map(str, bomb_effects))}" if bomb_effects else "Bomb Effects: empty")
 print(f"Bomb Casings: {', '.join(map(str, bomb_casings))}" if bomb_casings else "Bomb Casings: empty")
 [print(f"{bomb}: {value}") for bomb, value in sorted(bombs_record.items())]
