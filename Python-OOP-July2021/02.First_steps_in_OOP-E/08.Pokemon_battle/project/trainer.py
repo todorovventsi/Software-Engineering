@@ -1,6 +1,3 @@
-from pokemon import Pokemon
-
-
 class Trainer:
     def __init__(self, name):
         self.name = name
@@ -29,24 +26,7 @@ class Trainer:
 
     # This should be refactored as it is not working properly
     def trainer_data(self):
-        details = []
-        for catch in self.pokemons:
-            result = catch.pokemon_details
-            details.append(result)
-        return details
-
-
-
-
-
-
-pokemon = Pokemon("Pikachu", 90)
-print(pokemon.pokemon_details())
-trainer = Trainer("Ash")
-print(trainer.add_pokemon(pokemon))
-second_pokemon = Pokemon("Charizard", 110)
-print(trainer.add_pokemon(second_pokemon))
-print(trainer.add_pokemon(second_pokemon))
-print(trainer.release_pokemon("Pikachu"))
-print(trainer.release_pokemon("Pikachu"))
-print(trainer.trainer_data())
+        details = ["- " + catch.pokemon_details() + "\n" for catch in self.pokemons]
+        display_name = f"Pokemon Trainer {self.name}\n"
+        pokemon_numbers = f"Pokemon count {len(self.pokemons)}\n"
+        return f"{display_name}{pokemon_numbers}{''.join(details)}"
