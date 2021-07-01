@@ -24,6 +24,3 @@ if __name__ == '__main__':
             want_to_continue = input("Invalid input! Try again 'Y'/'N':").upper()
         if want_to_continue == "N":
             break
-
-
-
