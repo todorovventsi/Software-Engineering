@@ -5,9 +5,6 @@ from game_core.logic import play
 
 # Setup initial conditions
 def start_game():
-    player_one = Player(input("Player one name: "))
-    player_two = Player(input("Player two name: "))
-
     player_one.sign = input(f"{player_one.name}, would you like to play with 'X' or 'O'?").upper()
     while player_one.sign not in ["X", "O"]:
         player_one.sign = input(f"{player_one.name}, would you like to play with 'X' or 'O'?").upper()
@@ -18,5 +15,15 @@ def start_game():
 
 # Starting point
 if __name__ == '__main__':
-    start_game()
+    player_one = Player(input("Player one name: "))
+    player_two = Player(input("Player two name: "))
+    while True:
+        start_game()
+        want_to_continue = input("Would you like to continue 'Y'/'N':").upper()
+        while want_to_continue not in ["Y", "N"]:
+            want_to_continue = input("Invalid input! Try again 'Y'/'N':").upper()
+        if want_to_continue == "N":
+            break
+
+
 
