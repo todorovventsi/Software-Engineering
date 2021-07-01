@@ -1,16 +1,22 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from game_core.setup import Player
+from game_core.constants import board_numeration
+from game_core.logic import play
 
 
-# Press the green button in the gutter to run the script.
+# Setup initial conditions
+def start_game():
+    player_one = Player(input("Player one name: "))
+    player_two = Player(input("Player two name: "))
+
+    player_one.sign = input(f"{player_one.name}, would you like to play with 'X' or 'O'?").upper()
+    while player_one.sign not in ["X", "O"]:
+        player_one.sign = input(f"{player_one.name}, would you like to play with 'X' or 'O'?").upper()
+    player_two.sign = "X" if player_one.sign == "O" else "O"
+    [print(*row) for row in board_numeration]
+    play(player_one, player_two)
+
+
+# Starting point
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    start_game()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
