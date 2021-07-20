@@ -32,18 +32,6 @@ class Group:
         person = self.people[i]
         return f"Person {i}: {person!r}"
 
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.i < len(self.people):
-            item = self.people[self.i]
-            result = f"Person {self.i}: {item!r}"
-            self.i += 1
-            return result
-        raise StopIteration
-
-
 p0 = Person('Aliko', 'Dangote')
 p1 = Person('Bill', 'Gates')
 p2 = Person('Warren', 'Buffet')
