@@ -15,11 +15,11 @@ class Account:
 
     @staticmethod
     def validate_transaction(account, amount_to_add):
-        balance_after_transaction = account.balance() + amount_to_add
+        balance_after_transaction = account.balance + amount_to_add
         if balance_after_transaction < 0:
             raise ValueError("sorry cannot go in debt!")
         account.add_transaction(amount_to_add)
-        return f"New balance: {account.balance()}"
+        return f"New balance: {account.balance}"
 
     def __str__(self):
         return f"Account of {self.owner} with starting amount: {self.amount}"
@@ -31,7 +31,8 @@ class Account:
         return len(self._transactions)
 
     def __getitem__(self, i):
-        return self._transactions[i]
+        if self._transactions:
+            return self._transactions[i]
 
     def __gt__(self, other):
         return self.balance > other.balance
