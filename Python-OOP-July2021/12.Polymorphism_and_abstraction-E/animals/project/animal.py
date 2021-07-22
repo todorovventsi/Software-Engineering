@@ -10,7 +10,7 @@ class Animal(ABC):
 
     @abstractmethod
     def make_sound(self):
-        return f"{self.sound}"
+        pass
 
     def __repr__(self):
         return f"This is {self.name}. {self.name} is a {self.age} year old {self.gender} {type(self).__name__}"
