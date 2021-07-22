@@ -32,6 +32,7 @@ class Group:
         person = self.people[i]
         return f"Person {i}: {person!r}"
 
+
 p0 = Person('Aliko', 'Dangote')
 p1 = Person('Bill', 'Gates')
 p2 = Person('Warren', 'Buffet')
