@@ -11,10 +11,9 @@ class vowels:
     def __next__(self):
         while self.start < self.end:
             index = self.start
-            if self.string[index].lower() in self.vowels:
-                self.start += 1
-                return self.string[index]
             self.start += 1
+            if self.string[index].lower() in self.vowels:
+                return self.string[index]
             continue
         raise StopIteration
 
