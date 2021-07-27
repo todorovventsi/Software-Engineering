@@ -2,9 +2,9 @@ def fibonacci():
     a, b = 0, 1
     while True:
         yield a
-        b = a + b
+        b += a
         yield b
-        a = a + b
+        a += b
 
 
 generator = fibonacci()
