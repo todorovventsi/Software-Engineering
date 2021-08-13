@@ -36,7 +36,8 @@ class Survivor:
             raise ValueError("Health not valid!")
         if value > 100:
             self.__health = 100
-        self.__health = value
+        else:
+            self.__health = value
 
     @property
     def needs(self):
@@ -48,7 +49,8 @@ class Survivor:
             raise ValueError("Needs not valid!")
         if value > 100:
             self.__needs = 100
-        self.__needs = value
+        else:
+            self.__needs = value
 
     @property
     def needs_sustenance(self):

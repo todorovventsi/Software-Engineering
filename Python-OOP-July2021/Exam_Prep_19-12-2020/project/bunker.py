@@ -46,15 +46,17 @@ class Bunker:
 
     def heal(self, survivor, medicine_type):
         to_remove_med = [m for m in self.medicine if m.__class__.__name__ == medicine_type][-1]
-        self.medicine.remove(to_remove_med)
+
         if survivor.needs_healing:
+            self.medicine.remove(to_remove_med)
             to_remove_med.apply(survivor)
             return f"{survivor.name} healed successfully with {medicine_type}"
 
     def sustain(self, survivor, sustenance_type):
         to_remove_supply = [s for s in self.supplies if s.__class__.__name__ == sustenance_type][-1]
-        self.supplies.remove(to_remove_supply)
+
         if survivor.needs_sustenance:
+            self.supplies.remove(to_remove_supply)
             to_remove_supply.apply(survivor)
             return f"{survivor.name} sustained successfully with {sustenance_type}"
 
